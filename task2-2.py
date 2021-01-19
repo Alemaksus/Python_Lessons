@@ -3,17 +3,27 @@
 # При нечетном количестве элементов последний сохранить на своем месте.
 # Для заполнения списка элементов необходимо использовать функцию input().
 
-a = input('Введите ваше имя: ')
-b = input('Введите ваш возраст: ')
-c = input('введите год рождения')
-d = input('Введите город проживания')
+# Мой вариант:
 
-my_list = [a, b, c, d]
+# a = input('Введите ваше имя: ')
+# b = input('Введите ваш возраст: ')
+# c = input('введите год рождения')
+# d = input('Введите город проживания')
+#
+# my_list = [a, b, c, d]
+#
+# n = 0
+# for i in range(int(len(my_list) / 2)):
+# # далее аналог swap:
+#     my_list[n], my_list[n + 1] = my_list[n + 1], my_list[n]
+#     n += 2
+#
+# print(my_list)
 
-n = 0
-for i in range(int(len(my_list) / 2)):
-# далее аналог swap:
-    my_list[n], my_list[n + 1] = my_list[n + 1], my_list[n]
-    n += 2
+# Вариант Евгения Евтушенко:
 
-print(my_list)
+user_list = input('Введите числа с пробелами - ').split()
+
+for i in range(1, len(user_list_), 2):
+    user_list.insert(i - 1, iser_list.pop(i))
+print(user_list)

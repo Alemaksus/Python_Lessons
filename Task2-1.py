@@ -3,8 +3,19 @@
 # Использовать функцию type() для проверки типа.
 # Элементы списка можно не запрашивать у пользователя, а указать явно, в программе.
 
-a = ['Привет', 22.98, 1809, False]
-count = 0
-while count < len(a):
-    print(type(a[count]))
-    count += 1
+# Мой вариант:
+
+# a = ['Привет', 22.98, 1809, False]
+# count = 0
+# while count < len(a):
+#     print(type(a[count]))
+#     count += 1
+
+# Вариант Евгения Евтушенко более правильный, т.к. исп-ет именно type()
+
+a = ['Привет', 22.98, 1809, False, (5, 6, 6.5), {7: 'seven', 8: 'eight'}
+     frozenset(), range(11), (b'twelve'), bytearray(b'thirteen'),
+     zip(*[(14,15), (16,17), ('a','b')]), TypeError]
+
+for i, item in enumerate(a, 1):
+    print(f"{i}) {item} - {type(item)}")
