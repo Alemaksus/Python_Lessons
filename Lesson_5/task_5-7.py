@@ -13,31 +13,14 @@
 #
 # Подсказка: использовать менеджеры контекста.
 
+# Eugene's variant:
+
 import json
-profit = {}
-pr = {}
-prof = 0
-prof_aver = 0
-i = 0
-with open('task_5-7.txt', 'r') as f:
-    for line in f:
-        name, firm, earning, cost = line.split()
-        profit[name] = int(earning) - int(cost)
-        if profit.setdefault(name) >= 0:
-            prof = prof + profit.setdefault(name)
-            i += 1
-    if i != 0:
-        prof_aver = prof / i
-        print(f'Средняя прибыль: {prof_aver:.2f}')
-    else:
-        print(f'Прибыль - отсутсвует')
-    pr = {'средняя прибыль': round(prof_aver)}
-    profit.update(pr)
-    print(f'Прибыль каждой компании - {profit}')
 
-with open('file_5-7.json', 'w') as write_js:
-    json.dump(profit, write_js)
+with open('7.json', 'w') as fw:
+    with open('7.txt', encoding='utf-8') as f:
+        profit = {line.split()[0]: int(line.split()[2]) - int(line.split()[3]) for line in f}
+        result = [profit, {'average_profit': round(sum([int(i) for i in profit.values() if int(i) > 0]) /
+                                                   len([int(i) for i in profit.values() if int(i) > 0]))}]
 
-    js_str = json.dumps(profit)
-    print(f'Создан файл с расширением json со следующим содержимым: \n '
-          f' {js_str}')
+    json.dump(result, fw, ensure_ascii=False, indent=4)
