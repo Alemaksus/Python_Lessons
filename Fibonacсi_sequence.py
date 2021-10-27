@@ -1,12 +1,12 @@
 from itertools import islice
 
 class FibFinit:
-    def __init__(self, stop=650): # Stop for number 650
+    def __init__(self, stop=650):  # Stop for number 650
         self.prev = 0
         self.curr = 1
         self.stop = stop
 
-    def __iter__(self):
+    def __iter__(self):  # try to disable
         return self
 
     def __next__(self):
@@ -25,3 +25,4 @@ fib = FibFinit()
 print(next(fib))
 print(next(fib))
 print(next(fib))
+
